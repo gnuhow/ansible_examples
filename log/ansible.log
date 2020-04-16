@@ -1,0 +1,71 @@
+2020-04-16 12:13:29,672 p=1999 u=ansible n=ansible | ERROR! vars file vars/main.yml was not found
+Could not find file on the Ansible Controller.
+If you are using a module and expect the file to exist on the remote, see the remote_src option
+2020-04-16 12:14:52,754 p=2027 u=ansible n=ansible | PLAY [users and groups example for github] **************************************************
+2020-04-16 12:14:52,772 p=2027 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************
+2020-04-16 12:14:54,804 p=2027 u=ansible n=ansible | ok: [ansible06]
+2020-04-16 12:14:54,835 p=2027 u=ansible n=ansible | TASK [test vars file] ***********************************************************************
+2020-04-16 12:14:54,885 p=2027 u=ansible n=ansible | ok: [ansible06] => {
+    "msg": "test var_file_loaded_ok"
+}
+2020-04-16 12:14:54,914 p=2027 u=ansible n=ansible | TASK [test vars dict] ***********************************************************************
+2020-04-16 12:14:54,973 p=2027 u=ansible n=ansible | ok: [ansible06] => (item={'user': 'able', 'group': 'bravo', 'uid': 6001, 'comment': 'able dicks'}) => {
+    "msg": "user able"
+}
+2020-04-16 12:14:54,974 p=2027 u=ansible n=ansible | ok: [ansible06] => (item={'user': 'alpha', 'group': 'beta', 'uid': 6002, 'comment': 'alpha cunts'}) => {
+    "msg": "user alpha"
+}
+2020-04-16 12:14:54,975 p=2027 u=ansible n=ansible | ok: [ansible06] => (item={'user': 'argo', 'group': 'bingo', 'uid': 6003, 'comment': 'argo admin'}) => {
+    "msg": "user argo"
+}
+2020-04-16 12:14:55,004 p=2027 u=ansible n=ansible | TASK [add groups] ***************************************************************************
+2020-04-16 12:14:55,686 p=2027 u=ansible n=ansible | failed: [ansible06] (item={'group': 'bravo', 'gid': 5001}) => {"ansible_loop_var": "item", "changed": false, "item": {"gid": 5001, "group": "bravo"}, "msg": "groupadd: GID '5001' already exists\n", "name": "bravo"}
+2020-04-16 12:14:56,099 p=2027 u=ansible n=ansible | failed: [ansible06] (item={'group': 'beta', 'gid': 5002}) => {"ansible_loop_var": "item", "changed": false, "item": {"gid": 5002, "group": "beta"}, "msg": "groupadd: GID '5002' already exists\n", "name": "beta"}
+2020-04-16 12:14:56,517 p=2027 u=ansible n=ansible | failed: [ansible06] (item={'group': 'bingo', 'gid': 5003}) => {"ansible_loop_var": "item", "changed": false, "item": {"gid": 5003, "group": "bingo"}, "msg": "groupadd: GID '5003' already exists\n", "name": "bingo"}
+2020-04-16 12:14:56,924 p=2027 u=ansible n=ansible | ok: [ansible06] => (item={'group': 'able', 'gid': 5004})
+2020-04-16 12:14:57,329 p=2027 u=ansible n=ansible | ok: [ansible06] => (item={'group': 'alpha', 'gid': 5005})
+2020-04-16 12:14:57,728 p=2027 u=ansible n=ansible | ok: [ansible06] => (item={'group': 'argo', 'gid': 5006})
+2020-04-16 12:14:57,732 p=2027 u=ansible n=ansible | PLAY RECAP **********************************************************************************
+2020-04-16 12:14:57,732 p=2027 u=ansible n=ansible | ansible06                  : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-04-16 12:16:15,921 p=2119 u=ansible n=ansible | PLAY [users and groups example for github] **************************************************
+2020-04-16 12:16:15,935 p=2119 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************
+2020-04-16 12:16:17,746 p=2119 u=ansible n=ansible | ok: [ansible06]
+2020-04-16 12:16:17,777 p=2119 u=ansible n=ansible | TASK [test vars file] ***********************************************************************
+2020-04-16 12:16:17,815 p=2119 u=ansible n=ansible | ok: [ansible06] => {
+    "msg": "test var_file_loaded_ok"
+}
+2020-04-16 12:16:17,845 p=2119 u=ansible n=ansible | TASK [test vars dict] ***********************************************************************
+2020-04-16 12:16:17,903 p=2119 u=ansible n=ansible | ok: [ansible06] => (item={'user': 'able', 'group': 'bravo', 'uid': 6001, 'comment': 'able bravo'}) => {
+    "msg": "user able"
+}
+2020-04-16 12:16:17,903 p=2119 u=ansible n=ansible | ok: [ansible06] => (item={'user': 'alpha', 'group': 'beta', 'uid': 6002, 'comment': 'alpha beta'}) => {
+    "msg": "user alpha"
+}
+2020-04-16 12:16:17,904 p=2119 u=ansible n=ansible | ok: [ansible06] => (item={'user': 'argo', 'group': 'bingo', 'uid': 6003, 'comment': 'argo bongo'}) => {
+    "msg": "user argo"
+}
+2020-04-16 12:16:17,935 p=2119 u=ansible n=ansible | TASK [add groups] ***************************************************************************
+2020-04-16 12:16:18,609 p=2119 u=ansible n=ansible | ok: [ansible06] => (item={'group': 'able', 'gid': 5004})
+2020-04-16 12:16:19,018 p=2119 u=ansible n=ansible | ok: [ansible06] => (item={'group': 'alpha', 'gid': 5005})
+2020-04-16 12:16:19,431 p=2119 u=ansible n=ansible | ok: [ansible06] => (item={'group': 'argo', 'gid': 5006})
+2020-04-16 12:16:20,178 p=2119 u=ansible n=ansible | changed: [ansible06] => (item={'group': 'bravo', 'gid': 5007})
+2020-04-16 12:16:20,881 p=2119 u=ansible n=ansible | changed: [ansible06] => (item={'group': 'beta', 'gid': 5008})
+2020-04-16 12:16:21,546 p=2119 u=ansible n=ansible | changed: [ansible06] => (item={'group': 'bingo', 'gid': 5009})
+2020-04-16 12:16:21,580 p=2119 u=ansible n=ansible | TASK [add users] ****************************************************************************
+2020-04-16 12:16:22,794 p=2119 u=ansible n=ansible | changed: [ansible06] => (item={'user': 'able', 'group': 'bravo', 'uid': 6001, 'comment': 'able bravo'})
+2020-04-16 12:16:23,553 p=2119 u=ansible n=ansible | changed: [ansible06] => (item={'user': 'alpha', 'group': 'beta', 'uid': 6002, 'comment': 'alpha beta'})
+2020-04-16 12:16:24,299 p=2119 u=ansible n=ansible | changed: [ansible06] => (item={'user': 'argo', 'group': 'bingo', 'uid': 6003, 'comment': 'argo bongo'})
+2020-04-16 12:16:24,334 p=2119 u=ansible n=ansible | TASK [add users to groups] ******************************************************************
+2020-04-16 12:16:25,115 p=2119 u=ansible n=ansible | changed: [ansible06] => (item={'user': 'able', 'group': 'bravo', 'uid': 6001, 'comment': 'able bravo'})
+2020-04-16 12:16:25,846 p=2119 u=ansible n=ansible | changed: [ansible06] => (item={'user': 'alpha', 'group': 'beta', 'uid': 6002, 'comment': 'alpha beta'})
+2020-04-16 12:16:26,566 p=2119 u=ansible n=ansible | changed: [ansible06] => (item={'user': 'argo', 'group': 'bingo', 'uid': 6003, 'comment': 'argo bongo'})
+2020-04-16 12:16:26,599 p=2119 u=ansible n=ansible | TASK [configure ssh keys] *******************************************************************
+2020-04-16 12:16:27,586 p=2119 u=ansible n=ansible | ok: [ansible06] => (item={'user': 'able', 'group': 'bravo', 'uid': 6001, 'comment': 'able bravo'})
+2020-04-16 12:16:28,174 p=2119 u=ansible n=ansible | ok: [ansible06] => (item={'user': 'alpha', 'group': 'beta', 'uid': 6002, 'comment': 'alpha beta'})
+2020-04-16 12:16:28,746 p=2119 u=ansible n=ansible | ok: [ansible06] => (item={'user': 'argo', 'group': 'bingo', 'uid': 6003, 'comment': 'argo bongo'})
+2020-04-16 12:16:28,779 p=2119 u=ansible n=ansible | TASK [set passwd] ***************************************************************************
+2020-04-16 12:16:29,488 p=2119 u=ansible n=ansible | changed: [ansible06] => (item={'user': 'able', 'group': 'bravo', 'uid': 6001, 'comment': 'able bravo'})
+2020-04-16 12:16:29,914 p=2119 u=ansible n=ansible | changed: [ansible06] => (item={'user': 'alpha', 'group': 'beta', 'uid': 6002, 'comment': 'alpha beta'})
+2020-04-16 12:16:30,330 p=2119 u=ansible n=ansible | changed: [ansible06] => (item={'user': 'argo', 'group': 'bingo', 'uid': 6003, 'comment': 'argo bongo'})
+2020-04-16 12:16:30,334 p=2119 u=ansible n=ansible | PLAY RECAP **********************************************************************************
+2020-04-16 12:16:30,334 p=2119 u=ansible n=ansible | ansible06                  : ok=8    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

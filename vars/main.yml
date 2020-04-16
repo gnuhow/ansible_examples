@@ -1,0 +1,28 @@
+--- 
+test: var_file_loaded_ok
+group_list:
+- group: able
+  gid: 5004
+- group: alpha
+  gid: 5005
+- group: argo
+  gid: 5006
+- group: bravo
+  gid: 5007
+- group: beta
+  gid: 5008
+- group: bingo
+  gid: 5009
+user_list:
+- user: able
+  group: bravo
+  uid: 6001
+  comment: able bravo
+- user: alpha
+  group: beta
+  uid: 6002
+  comment: alpha beta
+- user: argo
+  group: bingo
+  uid: 6003
+  comment: argo bongo

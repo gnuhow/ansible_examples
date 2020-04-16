@@ -1,0 +1,8 @@
+[lamp]
+ansible06
+
+[db]
+ansible07
+
+[control]
+ansible05

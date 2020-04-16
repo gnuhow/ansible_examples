@@ -1,0 +1,47 @@
+---
+- name: users and groups example for github
+  hosts: lamp
+  vars_files:
+  - ../vars/main.yml
+  vars_prompt:
+    - name: password
+      prompt: "Set a default user pass"
+  tasks:
+  - name: test vars file
+    debug:
+      msg: test {{ test }}
+  - name: test vars dict
+    debug:
+      msg: user {{ item.user }}
+    loop: "{{ user_list }}"
+  - name: add groups
+    group:
+      name: "{{ item.group }}"
+      gid: "{{ item.gid }}"
+    loop: "{{ group_list }}"
+  - name: add users
+    user:
+      name: "{{ item.user }}"
+      group: "{{ item.user }}"
+      uid: "{{ item.uid }}"
+      comment: "{{ item.comment }}"
+      generate_ssh_key: yes
+    loop: "{{ user_list }}"
+  - name: add users to groups
+    user:
+      name: "{{ item.user }}"
+      groups: 
+      - "{{ item.group }}"
+      - wheel
+      append: yes
+    loop: "{{ user_list }}"
+  - name: configure ssh keys
+    authorized_key:
+      user: "{{ item.user }}"
+      state: present
+      key: "{{ lookup('file','/home/ansible/.ssh/id_rsa.pub') }}"
+      validate_certs: 
+    loop: "{{ user_list }}"
+  - name: set passwd
+    shell: "echo {{ password}} | passwd --stdin {{ item.user }}"
+    loop: "{{ user_list }}"
